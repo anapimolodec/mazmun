@@ -7,7 +7,10 @@ function Main() {
   return (
     <div className="main">
       <h1 className="text-9xl">{t("projects")}</h1>
-      <ProjectList />
+      <div className="grid grid-cols-2 w-full">
+        <ProjectList />
+        <div className="bg-neutral-400"></div>
+      </div>
     </div>
   );
 }
