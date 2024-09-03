@@ -6,7 +6,7 @@ function Main() {
   const { t } = useTranslation();
   return (
     <div className="main">
-      <h1>{t("projects")}</h1>
+      <h1 className="text-9xl">{t("projects")}</h1>
       <ProjectList />
     </div>
   );
