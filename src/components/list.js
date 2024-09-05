@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import Project from "./project";
+import ImageBox from "./image";
 
-function ProjectList() {
+const ProjectList = ({ projects }) => {
+  const [modal, setModal] = useState({ active: false, index: 0 });
+
   return (
-    <div className="project-list flex text-left w-full">
-      <ul className="divide-y divide-blue-200 w-full">
-        {Array.from({ length: 20 }, (_, i) => (
-          <li key={i} className="p-3">
-            <p className="text-3xl">Project {i + 1}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="grid grid-cols-2 w-full">
+      <div className="project-list flex text-left w-full">
+        <ul className="divide-y divide-blue-200 w-full">
+          {projects.map((project, index) => (
+            <Project
+              key={index}
+              i={index}
+              name={project.name}
+              setModal={setModal}
+            />
+          ))}
+        </ul>
+      </div>
+      <ImageBox modal={modal} projects={projects} />
     </div>
   );
-}
+};
 
 export default ProjectList;

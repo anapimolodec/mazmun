@@ -28,3 +28,17 @@ html, body {
   overflow-y: auto; 
   max-height: calc(100vh - 150px); 
 }
+
+
+.project:hover {
+opacity: 0.4;
+}
+
+.project:hover p{
+  transform: translateX(10px);
+}
+
+.project p{
+  transition: all 0.2s;
+  font-weight: 300;
+}

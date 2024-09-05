@@ -1,0 +1,18 @@
+{
+    "title": "Frontend Developer",
+    "description": "This is a simple example of using JSON in a React app.",
+    "projects": [
+        {
+            "name": "Item 1",
+            "src": "/images/1.jpg"
+        },
+        {
+            "name": "Item 2",
+            "src": "/images/2.jpg"
+        },
+        {
+            "name": "Item 3",
+            "src": "/images/3.jpg"
+        }
+    ]
+}
