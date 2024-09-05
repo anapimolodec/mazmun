@@ -15,10 +15,10 @@ function Main({ data }) {
     setListHeight(`${projectListHeight}px`);
   }, []);
   return (
-    <div className="main">
+    <div className="main bg-qara border-solid border-2 border-sary ">
       <div className="grid grid-cols-2 w-full">
         <div className="text-left">
-          <h1 className="text-9xl py-10">{t("projects")}</h1>
+          <h1 className="text-8xl py-10 text-white ">{t("projects")}</h1>
           <div style={{ height: listHeight, overflowY: "auto" }}>
             <ProjectList
               projects={data.projects || []}

@@ -17,7 +17,7 @@ function App() {
     return <div>Loading...</div>;
   }
   return (
-    <div className="App">
+    <div className="App bg-qara">
       <Main data={data} />
     </div>
   );

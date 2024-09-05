@@ -11,9 +11,6 @@ html, body {
 }
 
 .main {
-
-  border: 1px solid lightgray;
-  background-color: white;
   margin: auto;
   padding-bottom: 200px;
   width: 100%;
