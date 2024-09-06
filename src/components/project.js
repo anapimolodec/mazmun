@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Project = ({ name, i, setModal }) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    // Navigate to the URL based on the project name
     navigate(`/projects/${name.toLowerCase().replace(/\s+/g, "-")}`);
   };
   return (

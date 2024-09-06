@@ -14,14 +14,6 @@ const ProjectPage = () => {
           more details about the project here, such as description, images, and
           other content.
         </p>
-
-        {/* You can add more content, such as images, details, etc. */}
-        <div className="mt-8">
-          <h2 className="text-2xl font-semibold mb-2">Project Details</h2>
-          <p className="text-md">
-            More information about the project will go here.
-          </p>
-        </div>
       </div>
     </MoveToLeft>
   );
