@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import ProjectList from "../components/list";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import Fade from "../motion/fade";
 
