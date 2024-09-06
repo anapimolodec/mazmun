@@ -1,18 +1,21 @@
 import React from "react";
+import Project from "./project";
 
-function ProjectList() {
+const ProjectList = ({ projects, setModal }) => {
   return (
-    <div className="project-list">
-      <ul>
-        <li>project 1</li>
-        <li>project 2</li>
-        <li>project 3</li>
-        <li>project 4</li>
-        <li>project 5</li>
-        <li>project 6</li>
+    <div className="w-full overflow-y-scroll">
+      <ul className="divide-y divide-blue-200 w-full">
+        {projects.map((project, index) => (
+          <Project
+            key={index}
+            i={index}
+            name={project.name}
+            setModal={setModal}
+          />
+        ))}
       </ul>
     </div>
   );
-}
+};
 
 export default ProjectList;
