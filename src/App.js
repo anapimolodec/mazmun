@@ -1,9 +1,19 @@
 import "./App.css";
-import Main from "./components/main";
+import Main from "./pages/main.js";
+import ProjectPage from "./pages/project_page.js";
+import Home from "./pages/home.js";
 import "./i18n.js";
 import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
-function App() {
+const Animated = () => {
+  const location = useLocation();
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -17,8 +27,22 @@ function App() {
     return <div>Loading...</div>;
   }
   return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Main data={data} />} />
+        <Route path="/projects/:name" element={<ProjectPage />} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
+function App() {
+  return (
     <div className="App bg-qara">
-      <Main data={data} />
+      <Router>
+        <Animated />
+      </Router>
     </div>
   );
 }

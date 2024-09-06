@@ -63,7 +63,6 @@ const RandomImagePlacement = ({ images }) => {
       ref={containerRef}
       style={{
         position: "relative",
-        border: "1px solid lightgrey",
         width: "100%",
         height: "100%",
         minHeight: "600px",
@@ -78,7 +77,7 @@ const RandomImagePlacement = ({ images }) => {
             position: "absolute",
             left: positions[index] ? `${positions[index].x}px` : "0px",
             top: positions[index] ? `${positions[index].y}px` : "0px",
-            width: "200px",
+            width: "300px",
             objectFit: "cover",
           }}
         />
