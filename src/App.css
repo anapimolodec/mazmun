@@ -1,23 +1,4 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  height: 100vh;
-}
-
-.App {
-  text-align: center;
-  height: 100vh;
-}
-
-.main {
-  margin: auto;
-  padding-bottom: 200px;
-  width: 100%;
-  max-width: 1200px; 
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
 }

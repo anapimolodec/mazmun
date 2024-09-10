@@ -3,60 +3,87 @@
     "description": "This is a simple example of using JSON in a React app.",
     "projects": [
         {
-            "name": "Item 1",
+            "name": "Mobick Mania",
             "src": [
                 "/images/1-1.jpg",
                 "/images/1-2.jpg",
                 "/images/1-3.jpg"
+            ],
+            "tags": [
+                "Front end",
+                "Flutter"
             ]
         },
         {
-            "name": "Item 2",
+            "name": "WMS",
             "src": [
                 "/images/2.jpg",
                 "/images/2.jpg"
+            ],
+            "tags": [
+                "Front end"
             ]
         },
         {
-            "name": "Item 3",
+            "name": "Landing Page",
             "src": [
                 "/images/3.jpg"
+            ],
+            "tags": [
+                "Flutter"
             ]
         },
         {
-            "name": "Item 4",
+            "name": "Krave",
             "src": [
                 "/images/2.jpg"
+            ],
+            "tags": [
+                "Front end",
+                "Design",
+                "Flutter"
             ]
         },
         {
-            "name": "Item 5",
+            "name": "This is never that",
             "src": [
                 "/images/3.jpg"
+            ],
+            "tags": [
+                "Front end",
+                "Flutter"
             ]
         },
         {
-            "name": "Item 6",
+            "name": "Portfolio",
             "src": [
                 "/images/2.jpg"
+            ],
+            "tags": [
+                "Flutter"
             ]
         },
         {
-            "name": "Item 7",
+            "name": "Project",
             "src": [
                 "/images/3.jpg"
             ]
         },
         {
-            "name": "Item 8",
+            "name": "Python related project",
             "src": [
                 "/images/3.jpg"
-            ]
+            ],
+            "tags": []
         },
         {
-            "name": "Item 9",
+            "name": "Mobick Mania",
             "src": [
                 "/images/3.jpg"
+            ],
+            "tags": [
+                "Front end",
+                "Flutter"
             ]
         }
     ]

@@ -1,7 +1,6 @@
 import "./App.css";
 import Main from "./pages/main.js";
 import ProjectPage from "./pages/project_page.js";
-import Home from "./pages/home.js";
 import "./i18n.js";
 import React, { useEffect, useState } from "react";
 import {
@@ -11,6 +10,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import Navigation from "./components/navigation.js";
 
 const Animated = () => {
   const location = useLocation();
@@ -29,9 +29,8 @@ const Animated = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Main data={data} />} />
-        <Route path="/projects/:name" element={<ProjectPage />} />
+        <Route path="/" element={<Main data={data} />} />
+        <Route path="/:name" element={<ProjectPage />} />
       </Routes>
     </AnimatePresence>
   );
@@ -39,7 +38,8 @@ const Animated = () => {
 
 function App() {
   return (
-    <div className="App bg-qara">
+    <div className="App bg-darkblue">
+      <Navigation />
       <Router>
         <Animated />
       </Router>

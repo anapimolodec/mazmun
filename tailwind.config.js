@@ -7,10 +7,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        qara: "#2D3250",
-        sary: "#F6B17A",
-        kokshil: "#7077A1",
-        kok: "#424769",
+        darkblue: "#2D3250",
+        orange: "#F6B17A",
+        orange30: "#4DF6B17A",
+        blue30: "#4D7077A1",
+        blue: "#424769",
+      },
+      spacing: {
+        1200: "75rem",
       },
     },
   },
