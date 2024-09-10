@@ -23,11 +23,11 @@ const Project = ({ name, i, tags, setModal }) => {
         </div>
       </div>
 
-      <div className="relative flex items-center ">
+      <div className="relative flex items-center">
         <div className="transform transition-transform duration-700 ease-in-out group-hover:-translate-x-6">
           <Tag tags={tags} />
         </div>
-        <div className="absolute right-0 transform transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100">
+        <div className="absolute right-2 transform transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100">
           <ArrowRightAltIcon className="text-orange" fontSize="small" />
         </div>
       </div>
