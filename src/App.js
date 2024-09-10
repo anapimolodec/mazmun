@@ -10,6 +10,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import Navigation from "./components/navigation.js";
 
 const Animated = () => {
   const location = useLocation();
@@ -37,7 +38,8 @@ const Animated = () => {
 
 function App() {
   return (
-    <div className="App bg-qara">
+    <div className="App bg-darkblue">
+      <Navigation />
       <Router>
         <Animated />
       </Router>

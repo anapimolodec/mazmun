@@ -7,7 +7,7 @@ const ProjectPage = () => {
 
   return (
     <MoveToLeft>
-      <div className="p-8 bg-kokshil min-h-screen  text-white">
+      <div className="p-8 bg-blue30 min-h-screen  text-white">
         <h1 className="text-4xl font-bold mb-4">Project: {name}</h1>
         <p className="text-lg">
           This is a draft page for project <strong>{name}</strong>. You can add
