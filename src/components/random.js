@@ -42,7 +42,7 @@ const RandomImagePlacement = ({ images = [] }) => {
   }, [images]);
 
   if (!images || images.length === 0) {
-    return <div>No images to display</div>;
+    return <div></div>;
   }
 
   return (

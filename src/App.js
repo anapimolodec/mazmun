@@ -37,7 +37,7 @@ const Animated = () => {
 
 function App() {
   return (
-    <div className="App bg-darkblue">
+    <div className="App bg-darkblue min-h-screen">
       <Router>
         <Animated />
       </Router>
