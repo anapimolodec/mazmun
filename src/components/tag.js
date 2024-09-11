@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 export const Tag = ({ tags }) => {
   return (
-    <div className="flex items-center text-white opacity-70 group-hover:text-orange group-hover:opacity-100">
+    <div className="flex items-center text-white opacity-70 group-hover:text-teal-400 group-hover:opacity-100">
       {tags &&
         tags.map((name, index) => (
           <Fragment key={index}>

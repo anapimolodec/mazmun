@@ -4,10 +4,11 @@ import Project from "./project";
 const ProjectList = ({ projects, setModal }) => {
   return (
     <div className="w-full overflow-y-scroll">
-      <ul className="divide-y divide-blue30 w-full">
+      <ul className="divide-y divide-slate-700 w-full">
         {projects.map((project, index) => (
           <Project
-            key={index}
+            id={project.id}
+            key={project.id}
             i={index}
             name={project.name}
             tags={project.tags}

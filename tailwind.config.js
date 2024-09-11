@@ -6,15 +6,18 @@ module.exports = {
       sans: ["'Archivo'", "sans-serif"],
     },
     extend: {
-      colors: {
-        darkblue: "#2D3250",
-        orange: "#F6B17A",
-        orange30: "#4DF6B17A",
-        blue30: "#4D7077A1",
-        blue: "#424769",
+      extend: {
+        colors: {
+          // darkblue: rgb(45, 50, 80),
+          // orange: "rgb(246, 177, 122)",
+          // orange30: "rgba(246, 177, 122, 0.3)",
+          // blue30: "rgb(112, 119, 161)",
+          // blue: "rgb(66, 71, 105)",
+        },
       },
       spacing: {
         1200: "75rem",
+        800: "50rem",
       },
     },
   },
