@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="flex h-20 border-t border-slate-800">
       <div className="max-w-1200 w-full mx-auto border-x border-slate-800 text-white flex items-center justify-center opacity-70">
-        <p>{t("footer_text")}</p>
+        <p className="text-slate-400">{t("footer_text")}</p>
       </div>
     </footer>
   );

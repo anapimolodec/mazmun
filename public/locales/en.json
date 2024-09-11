@@ -4,10 +4,11 @@
     "footer_text": "built with love from scratch. 2024",
     "project": {
         "name": "Name",
+        "role": "Role",
         "year": "Year",
         "description": "Description",
+        "company": "Company",
         "category": "Category",
-        "technologies": "Technologies",
-        "role": "Role"
+        "stack": "Stack"
     }
 }
