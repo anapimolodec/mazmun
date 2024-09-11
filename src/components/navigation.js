@@ -5,8 +5,12 @@ const Navigation = () => {
   return (
     <nav className="flex h-20 border-b border-slate-800">
       <ul className="max-w-1200 w-full mx-auto border-x border-slate-800 flex justify-between items-end text-white">
-        <li className="px-1">/ {t("anapimolodec")}</li>
-        <li className="px-1">/ {t("projects")}</li>
+        <li className="px-1 text-slate-400">
+          <a href="/">/ {t("anapimolodec")}</a>
+        </li>
+        <li className="px-1 text-slate-400">
+          <a href="/">/ {t("projects")}</a>
+        </li>
       </ul>
     </nav>
   );
