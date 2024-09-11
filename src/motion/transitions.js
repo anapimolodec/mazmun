@@ -1,20 +1,30 @@
 import { motion } from "framer-motion";
+import React from "react";
 
-const animationConfiguration = {
-  initial: { x: "100%", opacity: 0 },
-  animate: { x: 0, opacity: 1 },
-  transition: { duration: 0.75, ease: "easeInOut" },
+const containerVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      type: "spring",
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+};
+
+const childVariants = {
+  hidden: { x: "100%", opacity: 0 },
+  visible: { x: 0, opacity: 1 },
 };
 
 const MoveToLeft = ({ children }) => {
   return (
-    <motion.div
-      initial={animationConfiguration.initial}
-      animate={animationConfiguration.animate}
-      exit={animationConfiguration.exit}
-      transition={animationConfiguration.transition}
-    >
-      {children}
+    <motion.div variants={containerVariants} initial="hidden" animate="visible">
+      {React.Children.map(children, (child) => (
+        <motion.div variants={childVariants}>{child}</motion.div>
+      ))}
     </motion.div>
   );
 };

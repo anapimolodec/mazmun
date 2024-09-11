@@ -3,6 +3,7 @@ import ProjectList from "../components/list";
 import { useTranslation } from "react-i18next";
 import ImageBox from "../components/image";
 import Fade from "../motion/fade";
+import Footer from "../components/footer";
 
 function Main({ data }) {
   const { t } = useTranslation();
@@ -17,11 +18,11 @@ function Main({ data }) {
   }, []);
   return (
     <Fade>
-      <div className="main max-w-1200 w-full mx-auto bg-darkblue border-x border-blue30">
-        <div className="grid grid-cols-2 w-full divide-x divide-blue30">
+      <div className="main max-w-1200 w-full mx-auto bg-slate-900 border-r border-slate-800 bg-[length:100px_100%] bg-[linear-gradient(to_right,_#1e293b_1px,_transparent_1px)]">
+        <div className="grid grid-cols-2 w-full">
           <div className="text-left  ">
-            <h1 className="text-8xl py-20 text-orange font-semibold">
-              {t("projects")}
+            <h1 className="text-8xl py-20 text-teal-400 font-semibold">
+              {t("projects").toUpperCase()}
             </h1>
             <div style={{ height: listHeight, overflowY: "auto" }}>
               <ProjectList
@@ -35,6 +36,7 @@ function Main({ data }) {
           <ImageBox modal={modal} projects={data.projects || []} />
         </div>
       </div>
+      <Footer />
     </Fade>
   );
 }

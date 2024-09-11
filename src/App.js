@@ -30,7 +30,7 @@ const Animated = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Main data={data} />} />
-        <Route path="/:name" element={<ProjectPage />} />
+        <Route path="/:id" element={<ProjectPage data={data} />} />
       </Routes>
     </AnimatePresence>
   );
@@ -38,7 +38,7 @@ const Animated = () => {
 
 function App() {
   return (
-    <div className="App bg-darkblue">
+    <div className="App bg-slate-900 min-h-screen">
       <Navigation />
       <Router>
         <Animated />

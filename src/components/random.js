@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const RandomImagePlacement = ({ images }) => {
+const RandomImagePlacement = ({ images = [] }) => {
   const [positions, setPositions] = useState([]);
   const containerRef = useRef(null);
 
@@ -11,42 +12,24 @@ const RandomImagePlacement = ({ images }) => {
       const containerRect = containerRef.current.getBoundingClientRect();
       const containerWidth = containerRect.width;
       const containerHeight = containerRect.height;
-      const imageSize = 200;
-      const maxOverlap = imageSize * 0.1;
 
-      const newPositions = [];
+      const quadrants = [
+        { x: [0, 0.5], y: [0, 0.5] },
+        { x: [0.5, 1], y: [0, 0.5] },
+        { x: [0, 0.5], y: [0.5, 1] },
+        { x: [0.5, 1], y: [0.5, 1] },
+      ];
 
-      const isOverlapping = (newPos) => {
-        return newPositions.some((pos) => {
-          const xOverlap = Math.max(
-            0,
-            Math.min(newPos.x + imageSize, pos.x + imageSize) -
-              Math.max(newPos.x, pos.x)
-          );
-          const yOverlap = Math.max(
-            0,
-            Math.min(newPos.y + imageSize, pos.y + imageSize) -
-              Math.max(newPos.y, pos.y)
-          );
-          const overlapArea = xOverlap * yOverlap;
-          const maxAllowedOverlapArea = maxOverlap * maxOverlap;
-          return overlapArea > maxAllowedOverlapArea;
-        });
-      };
-
-      images.forEach(() => {
-        let attempt = 0;
-        let newPosition;
-
-        do {
-          newPosition = {
-            x: Math.random() * (containerWidth - imageSize),
-            y: Math.random() * (containerHeight - imageSize),
-          };
-          attempt++;
-        } while (isOverlapping(newPosition) && attempt < 100);
-
-        newPositions.push(newPosition);
+      const newPositions = images.slice(0, 4).map((_, index) => {
+        const quadrant = quadrants[index];
+        return {
+          x:
+            (quadrant.x[0] + Math.random() * (quadrant.x[1] - quadrant.x[0])) *
+            containerWidth,
+          y:
+            (quadrant.y[0] + Math.random() * (quadrant.y[1] - quadrant.y[0])) *
+            containerHeight,
+        };
       });
 
       setPositions(newPositions);
@@ -58,6 +41,10 @@ const RandomImagePlacement = ({ images }) => {
     return () => window.removeEventListener("resize", calculatePositions);
   }, [images]);
 
+  if (!images || images.length === 0) {
+    return <div></div>;
+  }
+
   return (
     <div
       ref={containerRef}
@@ -68,20 +55,30 @@ const RandomImagePlacement = ({ images }) => {
         minHeight: "600px",
       }}
     >
-      {images.map((image, index) => (
-        <img
-          key={index}
-          src={image}
-          alt={`Random ${index}`}
-          style={{
-            position: "absolute",
-            left: positions[index] ? `${positions[index].x}px` : "0px",
-            top: positions[index] ? `${positions[index].y}px` : "0px",
-            width: "300px",
-            objectFit: "cover",
-          }}
-        />
-      ))}
+      <AnimatePresence>
+        {images.slice(0, 4).map((image, index) => (
+          <motion.img
+            key={`${image}-${index}`}
+            src={image}
+            alt={`Random ${index}`}
+            style={{
+              position: "absolute",
+              left: positions[index] ? `${positions[index].x}px` : "0px",
+              top: positions[index] ? `${positions[index].y}px` : "0px",
+              width: "300px",
+            }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+              delay: index * 0.1,
+            }}
+          />
+        ))}
+      </AnimatePresence>
     </div>
   );
 };
