@@ -9,6 +9,9 @@
         "description": "Description",
         "company": "Company",
         "category": "Category",
-        "stack": "Stack"
-    }
+        "stack": "Stack",
+        "url": "URL"
+    },
+    "something_wrong": "Something went wrong...",
+    "back": "back to projects"
 }
