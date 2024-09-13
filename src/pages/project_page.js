@@ -78,7 +78,7 @@ const ProjectDetails = ({ data }) => {
                 }
               />
             ))}
-          <button className="mt-4" onClick={() => navigate(-1)}>
+          <button className="mt-8" onClick={() => navigate(-1)}>
             <KeyboardBackspaceIcon />
             <span className="ml-2">{t("back")}</span>
           </button>
