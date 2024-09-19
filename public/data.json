@@ -7,7 +7,7 @@
             "url": "",
             "url_text": "Since the website was developed for a specific client, it is not accessible for public viewing.",
             "name": "Warehouse Management System",
-            "role": "Front end developer",
+            "role": "Front-end developer",
             "description": "I contributed to the development of a warehouse management system as part of a two-person front-end team, using React and Polaris UI, focusing on product-related features such as adding products with image upload, editing, and managing product details. \nI also worked on sections like orders, where different order states required specific functionalities, and handled user and location settings. \nAdditionally, I implemented role-based access control to ensure appropriate access to sections of the site based on user roles. \n\nTo maintain UI consistency, I used a combination of MUI and Polaris components, along with custom components where necessary. I created reusable custom hooks for features such as table filters and pagination, and employed React Hook Form for efficient form management. \n\n For API integration, I utilized Postman and Swagger, collaborating closely with the back-end team to ensure smooth communication and functionality. \nI also optimized performance using SWR and the Polaris table component to minimize re-renders and reduce repetitive API calls.",
             "src": [
                 "/images/wms/1.png",
@@ -26,15 +26,48 @@
                 "Postman"
             ],
             "tags": [
-                "Front end"
+                "Front-end"
             ],
             "year": "2024",
             "company": "MXN Commerce Inc."
         },
         {
+            "id": "mobick-mania",
+            "url": "https://apps.apple.com/kr/app/mobick-mania/id6466781851",
+            "url_text": "https://apps.apple.com/kr/app/mobick-mania/id6466781851",
+            "name": "Mobick Mania",
+            "role": "Flutter developer and UI/UX designer",
+            "description": "Mobick Mania is the first application dedicated to the Korean-originated cryptocurrency, Bitmobick. \n In the app, users can view real-time buy and sell prices, initiate trades, and use multi-signature technology to ensure all transactions are secure and decentralized. The app also keeps users informed with up-to-date news from the Bitmobick community. \n\nI contributed to this project from its inception, starting with the UI/UX design in Figma. As my first large-scale design project in Figma, I focused on creating an intuitive and user-friendly interface for the cryptocurrency application. \nThe design process involved several iterations before it was finalized and implemented in the final product.\n\nAfter completing the design, I transitioned into working with a team of Flutter developers to bring the application to life. The app includes authentication, metrics, a blog section, account information, multi-step trading process, and trade history. A particularly challenging aspect was the trade process itself, and integrating cryptographic functions using plugins like PointyCastle and Crypto for generating private and public key pairs and transaction signing. \nI worked extensively on ensuring secure and reliable transaction signing within the app, enabling users to sign transactions safely with their private keys while ensuring the integrity of the process.\n\nTo further enhance security, I implemented secure local storage using Flutter Secure Storage and Hive. Sensitive user data, such as cryptographic keys and authentication tokens, was encrypted and stored locally, ensuring that only authorized access was possible.\n\nAs a Flutter developer, my main contributions included creating reusable widgets, integrating Firebase Cloud Messaging and customizing it according to the app’s logic, and utilizing chart plugins to display trade data interactively. \nI also made initiative to lead the deployment of the app, participating in the launch, and releasing up to 10 updates.\n\nThis project stands out as my most significant contribution, as I was involved from the very beginning—choosing the app’s name and defining its identity—through to its successful launch and ongoing updates.",
+            "src": [
+                "/images/mobick-mania/1.png",
+                "/images/mobick-mania/2.png",
+                "/images/mobick-mania/3.png",
+                "/images/mobick-mania/4.png"
+            ],
+            "main_image": "/images/mobick-mania/main.png",
+            "technologies": [
+                "Flutter",
+                "Dart",
+                "Figma",
+                "Apple Developers Console",
+                "Google Play Console",
+                "Firebase Cloud Messaging",
+                "Provider",
+                "Hive",
+                "FL Chart",
+                "Web Socket"
+            ],
+            "tags": [
+                "Flutter",
+                "UI/UX Design"
+            ],
+            "year": "2023",
+            "company": "BetweenBits Inc."
+        },
+        {
             "id": "kravebeauty",
             "name": "KRAVEBEAUTY",
-            "role": "Front End Developer",
+            "role": "Front-end Developer",
             "url": "https://kravebeauty.co.kr/",
             "url_text": "https://kravebeauty.co.kr/",
             "description": "Utilized the client's Figma design files to develop and refine the design and functionality of key pages and components, including navigation, login and registration pages, and the shopping cart. \n\nManaged the complete data migration from Cafe24 to Shopify platform, which was also integrated with third-party delivery and shopping applications. \n\nCreated and administered an AWS EC2 instance to host the application code, specifically accommodating Korean address input with Juso API.",
@@ -53,7 +86,7 @@
                 "WHOIS domain"
             ],
             "tags": [
-                "Front end"
+                "Front-end"
             ],
             "year": "2022",
             "company": "Punch Digital Marketing"
@@ -63,7 +96,7 @@
             "url": "https://mobickmania.com/",
             "url_text": "https://mobickmania.com/",
             "name": "Mobick Mania Website",
-            "role": "Front end developer and designer",
+            "role": "Front-end developer and UI/UX designer",
             "description": "The Mobick Mania website serves as a promotional platform for a cryptocurrency exchange mobile application. \n\n I designed the website using Figma, leveraging 3D plugins to create realistic mockups. \nFor the technical implementation, I used React.js along with MUI components to build a static website encompassing a landing page, a step-by-step tutorial for app usage, and a contact form integrated with EmailJS.\nAdditionally, I deployed the website using Netlify, setting up a custom URL to enhance accessibility and branding.\n\nTo ensure the security and efficiency of real-time cryptocurrency data, I developed a separate Next.js application for retrieving and displaying live prices and trade statistics. This Next.js application, which includes both front-end and back-end, is embedded within the promotional website. The back-end team provided the EC2 instance, into which I deployed the Next.js application using terminal. This separation adds an extra layer of protection for the server from which real-time data is fetched and allows for the reusability of the data retrieval application across various platforms.\n\n",
             "src": [
                 "/images/mobick-mania-website/1.png",
@@ -83,57 +116,36 @@
                 "Netlify"
             ],
             "tags": [
-                "Front end",
-                "UI UX Design"
+                "Front-end",
+                "UI/UX Design"
             ],
             "year": "2023",
             "company": "BetweenBits Inc."
         },
         {
-            "id": "test",
-            "name": "KRAVEBEAUTY",
-            "role": "Front End Developer",
-            "url": "https://kravebeauty.co.kr/",
-            "description": "Using client’s Figma Design files, worked on the design and functionality of specific pages and components. Integrated Shopify store with third party delivery and shopping apps. Worked on data transfer as a part of full data migration between different platforms. Created and managed AWS ec2 instance as a server for the application code. Installed SSL and deployed application code to the running server.",
+            "id": "portfolio",
+            "name": "Personal Portfolio",
+            "role": "Front-end developer and UI/UX designer",
+            "url": "",
+            "description": "I update my personal portfolio whenever I feel I've learned new skills or technologies worth adding. The process begins with ideation, outlining the sections I want to include, followed by creating the overall identity and design in Figma. \n\nI prioritized the “Projects” page first, with plans to add the “About” and “Contact” sections later. As a result, the latest portfolio currently features only the Projects section.\n\nThe 2021 (v1) and 2022 (v2) portfolios were built using Gatsby, with the v2 version focusing on improving performance, aesthetics, and showcasing newer projects. \n In the latest portfolio, I transitioned to React and incorporated new skills like Framer Motion and Three.js animations.\n\n",
             "src": [
-                "/images/3.jpg"
+                "/images/portfolio/1.png",
+                "/images/portfolio/2.png"
             ],
-            "main_image": "/images/3.jpg",
+            "main_image": "/images/portfolio/main.png",
             "technologies": [
-                "Shopify (platform)",
-                "Liquid",
-                "JS(ES6), HTML5, CSS3",
-                "AWS instance",
-                "WHOIS domain"
+                "React",
+                "Gatsby",
+                "Figma",
+                "Framer Motion",
+                "three.js"
             ],
             "tags": [
-                "Front end"
+                "Front-end",
+                "UI/UX Design"
             ],
-            "year": "2022",
-            "company": "Punch Digital Marketing"
-        },
-        {
-            "id": "test2",
-            "name": "KRAVEBEAUTY",
-            "role": "Front End Developer",
-            "url": "https://kravebeauty.co.kr/",
-            "description": "Using client’s Figma Design files, worked on the design and functionality of specific pages and components. Integrated Shopify store with third party delivery and shopping apps. Worked on data transfer as a part of full data migration between different platforms. Created and managed AWS ec2 instance as a server for the application code. Installed SSL and deployed application code to the running server.",
-            "src": [
-                "/images/3.jpg"
-            ],
-            "main_image": "/images/3.jpg",
-            "technologies": [
-                "Shopify (platform)",
-                "Liquid",
-                "JS(ES6), HTML5, CSS3",
-                "AWS instance",
-                "WHOIS domain"
-            ],
-            "tags": [
-                "Front end"
-            ],
-            "year": "2022",
-            "company": "Punch Digital Marketing"
+            "year": "2021, 2022, 2024",
+            "company": ""
         }
     ]
 }

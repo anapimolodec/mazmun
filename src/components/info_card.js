@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 
-// Function to check if a string is a URL
 const isURL = (string) => {
   try {
     new URL(string);
@@ -20,7 +19,7 @@ export const InfoCard = ({ name, value }) => {
         {Array.isArray(value) ? (
           value.map((item, index) => (
             <Fragment key={index}>
-              <div className="">{item}</div>
+              <div className="break-words">{item}</div>
               {index !== value.length - 1 && (
                 <div className=" w-px bg-white opacity-70"></div>
               )}
@@ -29,7 +28,7 @@ export const InfoCard = ({ name, value }) => {
         ) : isURL(value) ? (
           <a
             href={value}
-            className="hover:text-teal-400"
+            className="hover:text-teal-400 break-words"
             target="_blank"
             rel="noopener noreferrer"
           >
