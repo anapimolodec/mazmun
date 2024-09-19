@@ -1,5 +1,6 @@
 import "./App.css";
 import Main from "./pages/main.js";
+import Home from "./pages/home.js";
 import ProjectPage from "./pages/project_page.js";
 import "./i18n.js";
 import React, { useEffect, useState } from "react";
@@ -30,6 +31,7 @@ const Animated = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Main data={data} />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/:id" element={<ProjectPage data={data} />} />
       </Routes>
     </AnimatePresence>
