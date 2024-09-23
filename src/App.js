@@ -24,7 +24,7 @@ const Animated = () => {
   }, []);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div>Loading..</div>;
   }
   return (
     <AnimatePresence mode="wait">
