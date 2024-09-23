@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { useFrame, Canvas } from "@react-three/fiber";
-import { useErrorBoundary } from "use-error-boundary";
 
 const CustomMesh = () => {
   const mesh = useRef(null);
@@ -19,16 +18,19 @@ const CustomMesh = () => {
   );
 };
 export const ThreeDCanvas = () => {
-  const { ErrorBoundary, didCatch, error } = useErrorBoundary();
-  return didCatch ? (
-    <div>{error.message}</div>
-  ) : (
-    <ErrorBoundary>
-      <Canvas fallback={<div>Sorry no WebGL supported!</div>}>
-        <ambientLight intensity={0.1} />
-        <directionalLight color="red" position={[0, 0, 5]} />
-        <CustomMesh />
-      </Canvas>
-    </ErrorBoundary>
+  return (
+    <div className="min-h-screen">
+      <div className="h-screen w-screen absolute">
+        <Canvas fallback={<div>Sorry no WebGL supported!</div>}>
+          <ambientLight intensity={0.1} />
+          <directionalLight position={[0, 1, 5]} />
+          <CustomMesh />
+        </Canvas>
+      </div>
+      <div className="flex flex-col justify-center text-slate-800">
+        <h1 className="text-9xl"> hello </h1>
+        <p className="text-4xl"> welcome to the portfolio</p>
+      </div>
+    </div>
   );
 };

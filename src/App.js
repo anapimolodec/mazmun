@@ -40,7 +40,7 @@ const Animated = () => {
 
 function App() {
   return (
-    <div className="App bg-slate-900 min-h-screen">
+    <div className="App bg-slate-900 min-h-screen m-0 p-0">
       <Navigation />
       <Router>
         <Animated />
