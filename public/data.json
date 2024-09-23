@@ -175,6 +175,32 @@
             ],
             "year": "2021, 2022, 2024",
             "company": ""
+        },
+        {
+            "id": "news-scrap",
+            "name": "News Scraping",
+            "role": "Web Developer",
+            "url": [
+                {
+                    "name": "github.com/Jupyter-to-GoogleSheets",
+                    "value": "https://github.com/punchkorea/Jupyter-to-GoogleSheets"
+                }
+            ],
+            "url_text": "",
+            "description": "I developed an automated system to collect and store news articles from Naver News for the marketing team using Python libraries like pandas and bs4. \n Using web scraping, the script gathers and formats the articles into an easy-to-read structure inside Google Spreadsheets. \n\n I deployed the code on a live server and set up a daily automated schedule, ensuring the team always had the latest news without manual effort, which resulted in improved efficiency by streamlining content delivery.",
+            "src": [],
+            "main_image": "/images/news-scrap/main.png",
+            "technologies": [
+                "Python",
+                "Libraries (Pandas, BeautifulSoup)",
+                "Google Drive API",
+                "Goole Spreadsheets API"
+            ],
+            "tags": [
+                "Python"
+            ],
+            "year": "2021",
+            "company": "Punch Digital Marketing"
         }
     ]
 }

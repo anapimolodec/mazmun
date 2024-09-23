@@ -55,6 +55,7 @@ const RandomImagePlacement = ({ images = [] }) => {
         height: "90%",
         minHeight: "600px",
       }}
+      className="hidden lg:flex"
     >
       <AnimatePresence>
         {images.slice(0, 4).map((image, index) => (
