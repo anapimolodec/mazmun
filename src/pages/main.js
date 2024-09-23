@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import ImageBox from "../components/image";
 import Fade from "../motion/fade";
 import Footer from "../components/footer";
+import SlidingText from "../components/sliding_text";
 
 function Main({ data }) {
   const { t } = useTranslation();
@@ -18,6 +19,7 @@ function Main({ data }) {
   }, []);
   return (
     <Fade>
+      <SlidingText text={t("sliding_text")} />
       <div className="main max-w-1200 w-full mx-auto bg-slate-900 border-r border-slate-800 bg-[length:100px_100%] bg-[linear-gradient(to_right,_#1e293b_1px,_transparent_1px)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 w-full px-2 lg:px-0">
           <div className="text-left">
@@ -42,6 +44,7 @@ function Main({ data }) {
           <ImageBox modal={modal} projects={data.projects || []} />
         </div>
       </div>
+
       <Footer />
     </Fade>
   );
