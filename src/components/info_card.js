@@ -1,14 +1,5 @@
 import { Fragment } from "react";
 
-const isURL = (string) => {
-  try {
-    new URL(string);
-    return true;
-  } catch (_) {
-    return false;
-  }
-};
-
 export const InfoCard = ({ name, value }) => {
   return (
     <div className="mb-4 grid grid-cols-3">
@@ -25,15 +16,6 @@ export const InfoCard = ({ name, value }) => {
               )}
             </Fragment>
           ))
-        ) : isURL(value) ? (
-          <a
-            href={value}
-            className="hover:text-teal-400 break-words"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {value}
-          </a>
         ) : (
           <p className="text-white col-span-2">{value}</p>
         )}

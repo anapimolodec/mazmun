@@ -5,6 +5,7 @@ import { InfoCard } from "../components/info_card";
 import MoveToLeft from "../motion/transitions";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import { URLCard } from "../components/url_card";
 
 const ProjectDetails = ({ data }) => {
   const { id } = useParams();
@@ -51,7 +52,11 @@ const ProjectDetails = ({ data }) => {
                 name={t("project.stack")}
                 value={project.technologies}
               />
-              <InfoCard name={t("project.url")} value={project.url_text} />
+              <URLCard
+                name={t("project.url")}
+                array={project.url}
+                placeholder={project.url_text}
+              />
             </div>
             <div className="col-span-3 flex-col">
               <h4 className="font-medium text-teal-400 mb-4">
