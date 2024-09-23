@@ -17,3 +17,10 @@ html, body {
     left: -100%;
   }
 }
+
+.home-container {
+  width: 100%; /* Or any specific width */
+  height: 400px; /* Or any specific height */
+  position: relative; /* Ensure positioning for absolute children if needed */
+  overflow: hidden; /* Prevent overflow */
+}
