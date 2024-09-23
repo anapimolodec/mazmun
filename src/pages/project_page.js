@@ -1,19 +1,22 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { InfoCard } from "../components/info_card";
 import MoveToLeft from "../motion/transitions";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import { URLCard } from "../components/url_card";
 
 const ProjectDetails = ({ data }) => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const project = data.projects.find((proj) => proj.id === id);
 
   if (!project) {
     return (
       <div className="text-center text-white text-2xl mt-10">
-        Project not found!
+        {t("something_wrong")}
       </div>
     );
   }
@@ -49,22 +52,41 @@ const ProjectDetails = ({ data }) => {
                 name={t("project.stack")}
                 value={project.technologies}
               />
+              <URLCard
+                name={t("project.url")}
+                array={project.url}
+                placeholder={project.url_text}
+              />
             </div>
             <div className="col-span-3 flex-col">
               <h4 className="font-medium text-teal-400 mb-4">
                 {t("project.description").toUpperCase()}
               </h4>
-              <p className="text-md mb-6">{project.description}</p>
+              <p className="text-md mb-6 whitespace-pre-line">
+                {project.description}
+              </p>
             </div>
           </div>
+
           {project.src &&
             project.src.map((url, index) => (
               <img
                 src={url}
+                key={index}
                 alt={`${project.name}_${index}`}
-                className="w-full object-cover shadow-lg mt-4"
+                className={
+                  index === 0
+                    ? "w-full object-cover shadow-lg mt-2 rounded-t-lg"
+                    : index === project.src.length - 1
+                    ? "w-full object-cover shadow-lg mt-2 rounded-b-lg"
+                    : "w-full object-cover shadow-lg mt-2 "
+                }
               />
             ))}
+          <button className="mt-8" onClick={() => navigate(-1)}>
+            <KeyboardBackspaceIcon />
+            <span className="ml-2">{t("back")}</span>
+          </button>
         </MoveToLeft>
       </div>
     </div>

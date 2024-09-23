@@ -50,10 +50,12 @@ const RandomImagePlacement = ({ images = [] }) => {
       ref={containerRef}
       style={{
         position: "relative",
+        top: 0,
         width: "100%",
-        height: "100%",
+        height: "90%",
         minHeight: "600px",
       }}
+      className="hidden lg:flex"
     >
       <AnimatePresence>
         {images.slice(0, 4).map((image, index) => (

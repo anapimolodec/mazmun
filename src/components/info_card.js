@@ -8,9 +8,9 @@ export const InfoCard = ({ name, value }) => {
       </h4>
       <div className="col-span-2">
         {Array.isArray(value) ? (
-          value.map((name, index) => (
+          value.map((item, index) => (
             <Fragment key={index}>
-              <div className="">{name}</div>
+              <div className="break-words">{item}</div>
               {index !== value.length - 1 && (
                 <div className=" w-px bg-white opacity-70"></div>
               )}
