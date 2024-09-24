@@ -6,7 +6,7 @@ function Home() {
   const { t } = useTranslation();
   return (
     <Fade>
-      <div className="  ">
+      <div>
         <h1 className="text-8xl py-10 text-white ">{t("home")}</h1>
       </div>
     </Fade>
