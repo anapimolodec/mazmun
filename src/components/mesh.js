@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import { useFrame } from "@react-three/fiber";
 import { useMotionValue, useSpring } from "framer-motion";
 import { motion } from "framer-motion-3d";
 import { Text } from "@react-three/drei";
