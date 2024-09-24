@@ -1,11 +1,14 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useMotionValue, useSpring } from "framer-motion";
 import { motion } from "framer-motion-3d";
+import { Text } from "@react-three/drei";
 
 const options = { damping: 20 };
+
 export const CustomMesh = ({ position, size }) => {
   const mesh = useRef(null);
+  const [hovered, setHovered] = useState(false); // Track hover state
 
   const mouse = {
     x: useSpring(useMotionValue(0), options),
@@ -28,35 +31,44 @@ export const CustomMesh = ({ position, size }) => {
     // eslint-disable-next-line
   }, []);
 
-  useFrame((state, delta) => {
-    mesh.current.rotation.x += delta * 0.15;
-    mesh.current.rotation.y += delta * 0.15;
-    mesh.current.rotation.z += delta * 0.15;
-  });
+  // Handle hover effects
+  const handlePointerOver = () => setHovered(true);
+  const handlePointerOut = () => setHovered(false);
 
   return (
-    <motion.mesh
-      ref={mesh}
-      rotation-x={mouse.y}
-      rotation-y={mouse.x}
-      position={position}
-    >
-      {/* <boxGeometry args={[size, size, size]} attach="geometry" /> */}
-      <sphereGeometry args={[size]} attach="geometry" />
-      <meshPhysicalMaterial
-        color="#2dd4bf" //teal-400
-        transmission={0.3}
-        opacity={0.8}
-        metalness={0.2}
-        roughness={0.1}
-        ior={1.5}
-        thickness={0.5}
-        specularIntensity={1}
-        envMapIntensity={1}
-        clearcoat={0.6}
-        clearcoatRoughness={0.1}
-        transparent
-      />
-    </motion.mesh>
+    <>
+      <motion.mesh
+        ref={mesh}
+        position={position}
+        onPointerOver={handlePointerOver}
+        onPointerOut={handlePointerOut}
+      >
+        <sphereGeometry args={[size, 32, 32]} attach="geometry" />
+        <meshPhysicalMaterial
+          color={hovered ? "hotpink" : "#2dd4bf"}
+          transmission={0.3}
+          opacity={0.8}
+          metalness={0.2}
+          roughness={0.1}
+          ior={1.5}
+          thickness={0.5}
+          specularIntensity={1}
+          envMapIntensity={1}
+          clearcoat={0.6}
+          clearcoatRoughness={0.1}
+          transparent
+        />
+      </motion.mesh>
+
+      {hovered && (
+        <Text
+          position={[position[0], position[1] + size + 0.5, position[2]]} // Position above the sphere
+          fontSize={0.5}
+          color="white"
+        >
+          Hovered!
+        </Text>
+      )}
+    </>
   );
 };
