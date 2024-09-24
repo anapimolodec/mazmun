@@ -1,74 +1,54 @@
 import React, { useRef, useEffect } from "react";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { TextureLoader } from "three/src/loaders/TextureLoader";
-import { OrbitControls } from "@react-three/drei";
-import { useMotionValue, useSpring } from "framer-motion";
-import { motion } from "framer-motion-3d";
-const options = { damping: 20 };
-
-const CustomMesh = () => {
-  const mesh = useRef(null);
-
-  const mouse = {
-    x: useSpring(useMotionValue(0), options),
-    y: useSpring(useMotionValue(0), options),
-  };
-
-  const manageMouseMove = (e) => {
-    const { innerWidth, innerHeight } = window;
-    const { clientX, clientY } = e;
-    const multiplier = 0.5;
-    const x = (-0.5 + clientX / innerWidth) * multiplier;
-    const y = (-0.5 + clientY / innerHeight) * multiplier;
-    mouse.x.set(x);
-    mouse.y.set(y);
-  };
-
-  useEffect(() => {
-    window.addEventListener("mousemove", manageMouseMove);
-    return () => window.removeEventListener("mousemove", manageMouseMove);
-    // eslint-disable-next-line
-  }, []);
-
-  useFrame((state, delta) => {
-    mesh.current.rotation.x += delta * 0.15;
-    mesh.current.rotation.y += delta * 0.15;
-    mesh.current.rotation.z += delta * 0.15;
-  });
-  const texture_1 = useLoader(TextureLoader, "/images/cube/side1.png");
-  const texture_2 = useLoader(TextureLoader, "/images/cube/side2.png");
-  const texture_3 = useLoader(TextureLoader, "/images/cube/side3.png");
-  const texture_4 = useLoader(TextureLoader, "/images/cube/side4.png");
-  const texture_5 = useLoader(TextureLoader, "/images/cube/side5.png");
-  const texture_6 = useLoader(TextureLoader, "/images/cube/side6.png");
-
-  return (
-    <motion.mesh ref={mesh} rotation-x={mouse.y} rotation-y={mouse.x}>
-      <boxGeometry args={[2.5, 2.5, 2.5]} />
-      <meshStandardMaterial map={texture_1} attach="material-0" />
-      <meshStandardMaterial map={texture_2} attach="material-1" />
-      <meshStandardMaterial map={texture_3} attach="material-2" />
-      <meshStandardMaterial map={texture_4} attach="material-3" />
-      <meshStandardMaterial map={texture_5} attach="material-4" />
-      <meshStandardMaterial map={texture_6} attach="material-5" />
-    </motion.mesh>
-  );
-};
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Environment, OrbitControls } from "@react-three/drei";
+import { CustomMesh } from "./mesh";
+import {
+  EffectComposer,
+  DepthOfField,
+  Bloom,
+  Noise,
+  Vignette,
+} from "@react-three/postprocessing";
 
 export const ThreeDCanvas = () => {
+  const figures = [
+    { position: [-2, 1, -2], size: 0.5 },
+    { position: [2, 0, -2], size: 0.1 },
+    { position: [-2, -2, 2], size: 0.6 },
+    { position: [2, 0, 2], size: 0.3 },
+    { position: [1.3, 0, -1], size: 0.1 },
+    { position: [0.5, 0, -0.5], size: 0.2 },
+    { position: [-0.6, 0, 1.4], size: 0.3 },
+  ];
   return (
-    <div className="min-h-screen">
-      <div className="h-screen w-screen absolute">
+    <div className="min-h-screen relative">
+      <div className="h-screen w-screen absolute z-20">
         <Canvas fallback={<div>Sorry no WebGL supported!</div>}>
           <OrbitControls enableZoom={false} enablePan={false} />
-          <ambientLight intensity={1} />
-          <directionalLight position={[0, 1, 5]} />
-          <CustomMesh />
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} />
+          {figures.map((cube, index) => (
+            <CustomMesh key={index} position={cube.position} size={cube.size} />
+          ))}
+
+          <Environment preset="city" />
+          <EffectComposer multisampling={0} disableNormalPass={true}>
+            <DepthOfField
+              focusDistance={0}
+              focalLength={0.02}
+              bokehScale={2}
+              height={700}
+            />
+            <Bloom
+              luminanceThreshold={0}
+              luminanceSmoothing={0.9}
+              height={300}
+              opacity={2}
+            />
+            <Noise opacity={0.035} />
+            <Vignette eskil={false} offset={0.1} darkness={1.1} />
+          </EffectComposer>
         </Canvas>
-      </div>
-      <div className="flex flex-col justify-center items-center text-slate-600">
-        <h1 className="text-9xl"> hello </h1>
-        <p className="text-4xl"> welcome to the portfolio</p>
       </div>
     </div>
   );
