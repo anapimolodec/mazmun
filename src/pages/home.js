@@ -1,15 +1,20 @@
 import React from "react";
-import { ThreeDCanvas } from "../components/sphere";
 import Fade from "../motion/fade";
-import { Tutorial } from "../components/tutorial";
+import { CustomCanvas } from "../components/custom_canvas";
+import Footer from "../components/footer";
 
 function Home() {
   return (
     <Fade>
-      <div id="hero">
-        {/* <ThreeDCanvas /> */}
-        <Tutorial />
+      <div className="max-w-1200 w-full mx-auto grid grid-cols-1 md:grid-cols-2 h-screen border-x border-slate-800">
+        <div id="hero" className="overflow-visible bg-teal-200">
+          <CustomCanvas />
+        </div>
+        <div className="flex flex-col border-l border-slate-800">
+          <h1 className="text-8xl  text-teal-400 font-semibold"> hey, </h1>
+        </div>
       </div>
+      <Footer />
     </Fade>
   );
 }
