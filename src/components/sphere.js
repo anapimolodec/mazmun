@@ -27,10 +27,10 @@ export const ThreeDCanvas = () => {
           <OrbitControls enableZoom={false} enablePan={false} />
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} />
-          {figures.map((cube, index) => (
+          {/* {figures.map((cube, index) => (
             <CustomMesh key={index} position={cube.position} size={cube.size} />
-          ))}
-
+          ))} */}
+          <CustomMesh position={[0, 0, 0]} size={1} />
           <Environment preset="city" />
           <EffectComposer multisampling={0} disableNormalPass={true}>
             <DepthOfField

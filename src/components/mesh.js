@@ -42,7 +42,8 @@ export const CustomMesh = ({ position, size }) => {
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
       >
-        <sphereGeometry args={[size, 32, 32]} attach="geometry" />
+        {/* <sphereGeometry args={[size, 32, 32]} attach="geometry" /> */}
+        <boxGeometry args={[size, size, size]} attach="geometry" />
         <meshPhysicalMaterial
           color={hovered ? "hotpink" : "#2dd4bf"}
           transmission={0.3}
@@ -58,7 +59,7 @@ export const CustomMesh = ({ position, size }) => {
           transparent
         />
       </motion.mesh>
-
+      {/* 
       {hovered && (
         <Text
           position={[position[0], position[1] + size + 0.5, position[2]]} // Position above the sphere
@@ -67,7 +68,7 @@ export const CustomMesh = ({ position, size }) => {
         >
           Hovered!
         </Text>
-      )}
+      )} */}
     </>
   );
 };
