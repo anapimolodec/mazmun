@@ -10,6 +10,9 @@ module.exports = {
         1200: "75rem",
         800: "50rem",
       },
+      height: {
+        headless: "calc(100vh - 80px)",
+      },
     },
   },
   plugins: [],
