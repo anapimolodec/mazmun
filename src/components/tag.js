@@ -5,7 +5,9 @@ export const Tag = ({ tags }) => {
       {tags &&
         tags.map((name, index) => (
           <Fragment key={index}>
-            <div className="text-xs mx-3">{name}</div>
+            <div className="text-xs mx-3 text-right w-min md:w-fit break-keep">
+              {name}
+            </div>
             {index !== tags.length - 1 && (
               <div className="h-4 w-px bg-white opacity-70"></div>
             )}
