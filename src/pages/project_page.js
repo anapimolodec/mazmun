@@ -25,7 +25,7 @@ const ProjectDetails = ({ data }) => {
   }
 
   return (
-    <div className="max-w-1200 w-full mx-auto border-r border-slate-800 bg-[length:100px_100%] bg-[linear-gradient(to_right,_#1e293b_1px,_transparent_1px)] text-white">
+    <div className="max-w-1200 w-full px-2 lg:px-0  mx-auto border-r border-slate-800 bg-[length:100px_100%] bg-[linear-gradient(to_right,_#1e293b_1px,_transparent_1px)] text-white">
       <div className="max-w-800 mx-auto pb-80">
         <MoveToLeft>
           {!imageLoaded && (
@@ -45,7 +45,10 @@ const ProjectDetails = ({ data }) => {
             onLoad={() => setImageLoaded(true)}
           />
 
-          <a href={project.url} className="group flex items-center mb-8 gap-8">
+          <a
+            href={project.url[0]?.value ?? "/"}
+            className="group flex items-center mb-8 gap-8"
+          >
             <h1 className="text-5xl text-teal-400 group-hover:text-teal-500">
               {project.name.toUpperCase()}
             </h1>

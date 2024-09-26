@@ -147,12 +147,16 @@
             "role": "Front-end developer and UI/UX designer",
             "url": [
                 {
-                    "name": "v1",
-                    "value": "https://anapimolodec-v1.netlify.app/"
+                    "name": "v3 - 2024",
+                    "value": "https://anapimolodec.netlify.app/"
                 },
                 {
-                    "name": "v2",
+                    "name": "v2 - 2022",
                     "value": "https://anapimolodec-v2.netlify.app/"
+                },
+                {
+                    "name": "v1 - 2021",
+                    "value": "https://anapimolodec-v1.netlify.app/"
                 }
             ],
             "url_text": "",
@@ -167,7 +171,8 @@
                 "Gatsby",
                 "Figma",
                 "Framer Motion",
-                "three.js"
+                "three.js",
+                "React Three Fiber"
             ],
             "tags": [
                 "Front-end",
