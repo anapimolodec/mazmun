@@ -1,11 +1,12 @@
-import React, { useMemo } from "react";
-import { useLoader } from "@react-three/fiber";
+import React, { useMemo, useRef } from "react";
+import { useLoader, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
 import { MeshTransmissionMaterial } from "@react-three/drei";
 
 const Oyu = (props) => {
   const svgData = useLoader(SVGLoader, "/oyu.svg");
+  const meshRef = useRef();
 
   const shapes = useMemo(() => {
     return svgData.paths.flatMap((path) => path.toShapes(true));
@@ -22,8 +23,14 @@ const Oyu = (props) => {
     return geometry;
   }, [shapes]);
 
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.z += delta * 0.1;
+    }
+  });
+
   return (
-    <mesh scale={0.07} {...props}>
+    <mesh scale={0.07} {...props} ref={meshRef}>
       <primitive object={geometry} />
       <MeshTransmissionMaterial
         thickness={2}

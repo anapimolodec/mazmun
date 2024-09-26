@@ -3,7 +3,7 @@ import {
   Float,
   Lightformer,
   Image,
-  // ContactShadows,
+  ContactShadows,
   Environment,
   OrbitControls,
 } from "@react-three/drei";
@@ -30,13 +30,13 @@ export const CustomCanvas = () => (
     <Float floatIntensity={2}>
       <Oyu position={[0, 0, 0]} />
     </Float>
-    {/* <ContactShadows
+    <ContactShadows
       scale={80}
       position={[0, -7.5, 0]}
       blur={0.9}
       far={100}
       opacity={0.6}
-    /> */}
+    />
     <Environment preset="night">
       <Lightformer
         intensity={8}

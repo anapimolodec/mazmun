@@ -9,7 +9,7 @@ const Navigation = () => {
           <a href="/">/ {t("anapimolodec")}</a>
         </li>
         <li className="px-1 text-slate-400">
-          <a href="/">/ {t("projects")}</a>
+          <a href="/projects">/ {t("projects")}</a>
         </li>
       </ul>
     </nav>

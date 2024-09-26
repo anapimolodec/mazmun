@@ -4,8 +4,10 @@ import { CustomCanvas } from "../components/custom_canvas";
 import Footer from "../components/footer";
 import { GitHub, LinkedIn, Mail } from "@mui/icons-material";
 import { AnchorIcon } from "../components/anchor_icon";
+import { useTranslation } from "react-i18next";
 
 function Home() {
+  const { t } = useTranslation();
   return (
     <Fade>
       <div className="max-w-1200 w-full mx-auto grid grid-cols-1 md:grid-cols-2 h-headless border-x border-slate-800">
@@ -16,19 +18,26 @@ function Home() {
           <h1 className="text-6xl px-2 text-teal-400 font-semibold">hey,</h1>
           <p className="text-xl px-4 text-white font-regular flex flex-col gap-1">
             <span>
-              I am Aiaru <span className="text-slate-600">@anapimolodec</span>
+              {t("i_am_aiaru")}
+              <span className="text-slate-600 px-3">@{t("anapimolodec")}</span>
             </span>
-            <span className="">
-              <span className="font-semibold pr-2">a front-end developer</span>
-              <span className="font-regular text-slate-600">
-                based in Seoul
+            <span>
+              <span className="font-semibold">{t("front_end_developer")}</span>
+              <span className="font-regular text-slate-600 px-3">
+                {t("based_in_seoul")}
               </span>
             </span>
           </p>
-          <div className="flex text-slate-800 px-2 gap-2">
-            <AnchorIcon icon={LinkedIn} link="https://www.linkedin.com/feed/" />
-            <AnchorIcon icon={GitHub} link="https://www.linkedin.com/feed/" />
-            <AnchorIcon icon={Mail} link="https://www.linkedin.com/feed/" />
+          <div className="flex text-slate-600 px-2 gap-4">
+            <AnchorIcon
+              icon={LinkedIn}
+              link="https://www.linkedin.com/in/aiaru/"
+            />
+            <AnchorIcon icon={GitHub} link="https://github.com/anapimolodec/" />
+            <AnchorIcon
+              icon={Mail}
+              link="mailto:aiaru.mukhamedyarova@gmail.com"
+            />
           </div>
         </div>
       </div>
