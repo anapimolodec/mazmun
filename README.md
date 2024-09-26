@@ -6,7 +6,7 @@
 This is a personal portfolio built with React. 
 
 If you want to use my code, please:
-## 🚀 Feel free to download repository and give some stars!
+## 🚀 Feel free to download the repository and give some stars!
 
   **but please do not copy sentences or any of my projects**
 
@@ -21,6 +21,10 @@ If you want to use my code, please:
 
 ``` project_page.js``` page
 - Individual project page
+
+## Relevant glossary
+```mazmun``` means "short summary" in Kazakh, which is basically how I would describe this portfolio, a short summary of my front end development journey
+```oyu``` means "ornament or pattern" in Kazakh, which is so pretty I cannot not include it here
 
 ## 💫 See live demo
 
