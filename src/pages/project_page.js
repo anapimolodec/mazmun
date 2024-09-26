@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { InfoCard } from "../components/info_card";
@@ -6,12 +6,15 @@ import MoveToLeft from "../motion/transitions";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { URLCard } from "../components/url_card";
+import Skeleton from "@mui/material/Skeleton";
 
 const ProjectDetails = ({ data }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const project = data.projects.find((proj) => proj.id === id);
+
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   if (!project) {
     return (
@@ -25,11 +28,23 @@ const ProjectDetails = ({ data }) => {
     <div className="max-w-1200 w-full mx-auto border-r border-slate-800 bg-[length:100px_100%] bg-[linear-gradient(to_right,_#1e293b_1px,_transparent_1px)] text-white">
       <div className="max-w-800 mx-auto pb-80">
         <MoveToLeft>
+          {!imageLoaded && (
+            <Skeleton
+              variant="rectangular"
+              width="100%"
+              height={288}
+              animation="wave"
+            />
+          )}
           <img
             src={project.main_image}
             alt={project.name}
-            className="w-full max-h-72 object-cover rounded-b-lg shadow-lg mb-12"
+            className={`w-full max-h-72 object-cover rounded-b-lg shadow-lg mb-12 transition-opacity duration-500 ${
+              imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
+            onLoad={() => setImageLoaded(true)}
           />
+
           <a href={project.url} className="group flex items-center mb-8 gap-8">
             <h1 className="text-5xl text-teal-400 group-hover:text-teal-500">
               {project.name.toUpperCase()}

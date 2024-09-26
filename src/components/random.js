@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Skeleton } from "@mui/material";
 
 const RandomImagePlacement = ({ images = [] }) => {
   const [positions, setPositions] = useState([]);
+  const [loadedImages, setLoadedImages] = useState([]);
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -35,51 +37,63 @@ const RandomImagePlacement = ({ images = [] }) => {
       setPositions(newPositions);
     };
 
-    calculatePositions();
+    const handleResize = () => {
+      requestAnimationFrame(calculatePositions);
+    };
 
-    window.addEventListener("resize", calculatePositions);
-    return () => window.removeEventListener("resize", calculatePositions);
+    calculatePositions();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [images]);
+
+  useEffect(() => {
+    setLoadedImages([]);
+    images.slice(0, 4).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => setLoadedImages((prev) => [...prev, src]);
+    });
   }, [images]);
 
   if (!images || images.length === 0) {
-    return <div></div>;
+    return null;
   }
+
+  const isLoading = loadedImages.length < Math.min(images.length, 4);
 
   return (
     <div
       ref={containerRef}
-      style={{
-        position: "relative",
-        top: 0,
-        width: "100%",
-        height: "90%",
-        minHeight: "600px",
-      }}
-      className="hidden lg:flex"
+      className="relative w-full h-[90vh] min-h-[600px] hidden lg:flex"
     >
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Skeleton />
+        </div>
+      )}
       <AnimatePresence>
-        {images.slice(0, 4).map((image, index) => (
-          <motion.img
-            key={`${image}-${index}`}
-            src={image}
-            alt={`Random ${index}`}
-            style={{
-              position: "absolute",
-              left: positions[index] ? `${positions[index].x}px` : "0px",
-              top: positions[index] ? `${positions[index].y}px` : "0px",
-              width: "300px",
-            }}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 260,
-              damping: 20,
-              delay: index * 0.1,
-            }}
-          />
-        ))}
+        {!isLoading &&
+          images.slice(0, 4).map((image, index) => (
+            <motion.img
+              key={`${image}-${index}`}
+              src={image}
+              alt={`Random ${index}`}
+              className="absolute w-[300px] object-cover"
+              style={{
+                left: positions[index]?.x,
+                top: positions[index]?.y,
+              }}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: index * 0.1,
+              }}
+            />
+          ))}
       </AnimatePresence>
     </div>
   );

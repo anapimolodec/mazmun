@@ -1,10 +1,12 @@
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, useEffect } from "react";
 import { useLoader, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
-import { MeshTransmissionMaterial } from "@react-three/drei";
+import { MeshTransmissionMaterial, useGLTF } from "@react-three/drei";
 
-const Oyu = (props) => {
+useGLTF.preload("/oyu.svg");
+
+const Oyu = React.memo((props) => {
   const svgData = useLoader(SVGLoader, "/oyu.svg");
   const meshRef = useRef();
 
@@ -23,11 +25,26 @@ const Oyu = (props) => {
     return geometry;
   }, [shapes]);
 
+  useEffect(() => {
+    if (geometry) {
+      geometry.computeBoundingSphere();
+      geometry.computeBoundingBox();
+    }
+  }, [geometry]);
+
   useFrame((state, delta) => {
     if (meshRef.current) {
       meshRef.current.rotation.z += delta * 0.1;
     }
   });
+
+  useEffect(() => {
+    if (meshRef.current) {
+      meshRef.current.frustumCulled = true;
+      meshRef.current.matrixAutoUpdate = false;
+      meshRef.current.updateMatrix();
+    }
+  }, []);
 
   return (
     <mesh scale={0.07} {...props} ref={meshRef}>
@@ -44,6 +61,6 @@ const Oyu = (props) => {
       />
     </mesh>
   );
-};
+});
 
 export default Oyu;
