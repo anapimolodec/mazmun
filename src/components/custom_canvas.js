@@ -10,7 +10,7 @@ import {
 } from "@react-three/drei";
 import { easing } from "maath";
 import Oyu from "./oyu";
-import { Suspense, useRef } from "react";
+import { Suspense } from "react";
 import { useTranslation } from "react-i18next";
 
 const Loading = () => {
