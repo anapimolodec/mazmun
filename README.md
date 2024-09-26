@@ -24,6 +24,7 @@ If you want to use my code, please:
 
 ## Relevant glossary
 ```mazmun``` means "short summary" in Kazakh, which is basically how I would describe this portfolio, a short summary of my front end development journey
+
 ```oyu``` means "ornament or pattern" in Kazakh, which is so pretty I cannot not include it here
 
 ## 💫 See live demo
