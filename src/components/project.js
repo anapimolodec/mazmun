@@ -17,9 +17,9 @@ const Project = ({ id, name, i, tags, setModal }) => {
       onClick={handleClick}
     >
       <div className="flex items-center text-white group-hover:text-teal-400">
-        <div className="flex gap-20 items-center">
-          <p className="text-xs opacity-70"> / 0{i + 1} </p>
-          <h2 className="text-2xl">{name}</h2>
+        <div className="flex gap-4 md:gap-10 lg:gap-20 items-center">
+          <p className="text-xs opacity-70 min-w-6"> / 0{i + 1} </p>
+          <h2 className="text-2xl max-w-60 lg:max-w-xs">{name}</h2>
         </div>
       </div>
 

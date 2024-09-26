@@ -27,7 +27,7 @@ function Main({ data }) {
               <h2 className="text-xl text-white font-regular pl-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 {t("selected").toUpperCase()}
               </h2>
-              <h1 className="text-8xl  text-teal-400 font-semibold">
+              <h1 className="text-4xl lg:text-8xl  text-teal-400 font-semibold">
                 {t("projects").toUpperCase()}
               </h1>
             </div>
