@@ -19,5 +19,6 @@
         "url": "URL"
     },
     "something_wrong": "Something went wrong...",
-    "back": "back to projects"
+    "back": "back to projects",
+    "loading": "Loading..."
 }

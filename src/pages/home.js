@@ -11,10 +11,10 @@ function Home() {
   return (
     <Fade>
       <div className="max-w-1200 w-full mx-auto grid grid-cols-1 md:grid-cols-2 h-headless border-x border-slate-800">
-        <div id="hero" className="overflow-visible bg-teal-200">
+        <div id="hero" className="overflow-visible bg-slate-900">
           <CustomCanvas />
         </div>
-        <div className="flex flex-col justify-center border-l border-slate-800 gap-10 px-2">
+        <div className="flex flex-col justify-center border-l border-slate-800 gap-10 px-2 pb-10">
           <h1 className="text-6xl px-2 text-teal-400 font-semibold">hey,</h1>
           <p className="text-xl px-4 text-white font-regular flex flex-col gap-1">
             <span>

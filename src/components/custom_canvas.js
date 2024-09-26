@@ -6,19 +6,26 @@ import {
   ContactShadows,
   Environment,
   OrbitControls,
+  Text,
 } from "@react-three/drei";
 import { easing } from "maath";
 import Oyu from "./oyu";
+import { Suspense, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
-export const CustomCanvas = () => (
-  <Canvas
-    eventSource={document.getElementById("hero")}
-    eventPrefix="client"
-    shadows
-    camera={{ position: [0, 0, 20] }}
-  >
+const Loading = () => {
+  const { t } = useTranslation();
+  return (
+    <Text fontSize={1} letterSpacing={-0.025} color="#334155">
+      {t("loading")}
+    </Text>
+  );
+};
+
+const Scene = () => (
+  <>
     <color attach="background" args={["#0f172a"]} />
-    <OrbitControls enableZoom={false} enablePan={true} />
+    <OrbitControls enableZoom={true} enablePan={true} />
     <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
     <Image
       url="/images/hero_text.png"
@@ -46,6 +53,19 @@ export const CustomCanvas = () => (
       />
     </Environment>
     <Rig />
+  </>
+);
+
+export const CustomCanvas = () => (
+  <Canvas
+    eventSource={document.getElementById("hero")}
+    eventPrefix="client"
+    shadows
+    camera={{ position: [0, 0, 20] }}
+  >
+    <Suspense fallback={<Loading />}>
+      <Scene />
+    </Suspense>
   </Canvas>
 );
 
