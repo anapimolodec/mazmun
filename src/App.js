@@ -12,8 +12,10 @@ import {
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Navigation from "./components/navigation.js";
+import ReactGA from "react-ga4";
 
 const Animated = () => {
+  ReactGA.initialize(process.env.REACT_APP_MEASUREMENT_ID);
   const location = useLocation();
   const [data, setData] = useState(null);
 
