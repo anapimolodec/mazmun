@@ -1,4 +1,4 @@
-import { Icon } from "@mui/material";
+import Icon from "@mui/material/Icon";
 
 export const AnchorIcon = ({ icon, link }) => {
   return (

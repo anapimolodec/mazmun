@@ -6,21 +6,11 @@ import {
   ContactShadows,
   Environment,
   OrbitControls,
-  Text,
 } from "@react-three/drei";
 import { easing } from "maath";
 import Oyu from "./oyu";
-import { Suspense, useCallback, memo } from "react";
-import { useTranslation } from "react-i18next";
-
-const Loading = memo(() => {
-  const { t } = useTranslation();
-  return (
-    <Text fontSize={1} letterSpacing={-0.025} color="#334155">
-      {t("loading")}
-    </Text>
-  );
-});
+import { Suspense, useCallback, memo, useState, useEffect } from "react";
+import LoadingScreen from "./loading";
 
 const Rig = memo(() => {
   const cameraMovement = useCallback((state, delta) => {
@@ -43,7 +33,13 @@ const Rig = memo(() => {
 
 const Lighting = memo(() => (
   <>
-    <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
+    <spotLight
+      position={[20, 20, 10]}
+      penumbra={1}
+      castShadow
+      angle={0.2}
+      // shadow-mapSize={[512, 512]}
+    />
     <Environment files="/hdri/environment.hdr">
       <Lightformer
         intensity={8}
@@ -65,7 +61,6 @@ const Scene = memo(() => (
       minDistance={10}
     />
     <Lighting />
-
     <Image
       url="/images/hero_text.png"
       transparent
@@ -73,11 +68,9 @@ const Scene = memo(() => (
       position={[0, 0, -10]}
       raycast={() => null}
     />
-
     <Float floatIntensity={2}>
       <Oyu position={[0, 0, 0]} />
     </Float>
-
     <ContactShadows
       scale={80}
       position={[0, -7.5, 0]}
@@ -90,20 +83,28 @@ const Scene = memo(() => (
   </>
 ));
 
-export const CustomCanvas = memo(() => (
-  <Canvas
-    eventSource={document.getElementById("hero")}
-    eventPrefix="client"
-    shadows
-    camera={{ position: [0, 0, 20], fov: 50 }}
-    performance={{ min: 0.5 }}
-    gl={{
-      antialias: true,
-      powerPreference: "high-performance",
-    }}
-  >
-    <Suspense fallback={<Loading />}>
-      <Scene />
-    </Suspense>
-  </Canvas>
-));
+export const CustomCanvas = memo(() => {
+  const [initialLoad, setInitialLoad] = useState(true);
+
+  useEffect(() => {
+    setInitialLoad(false);
+  }, []);
+
+  return (
+    <Canvas
+      eventSource={document.getElementById("hero")}
+      eventPrefix="client"
+      shadows
+      camera={{ position: [0, 0, 20], fov: 50 }}
+      performance={{ min: 0.5 }}
+      gl={{
+        antialias: true,
+        powerPreference: "high-performance",
+      }}
+    >
+      <Suspense fallback={<LoadingScreen />}>
+        {!initialLoad && <Scene />}
+      </Suspense>
+    </Canvas>
+  );
+});

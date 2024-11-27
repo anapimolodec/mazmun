@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Skeleton } from "@mui/material";
+import Skeleton from "@mui/material/Skeleton";
 
 const RandomImagePlacement = ({ images = [] }) => {
   const [positions, setPositions] = useState([]);
